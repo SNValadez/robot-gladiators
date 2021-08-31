@@ -5,11 +5,7 @@
 // "LOSE" - Player robot's health is zero or less
 
 
-console.log(enemyInfo);
 
-console.log(enemyInfo.length);
-console.log(enemyInfo[0]);
-console.log(enemyInfo[3]);
 
 
 
@@ -242,7 +238,11 @@ var enemyInfo = [
     }
 ];
 
+console.log(enemyInfo);
 
+console.log(enemyInfo.length);
+console.log(enemyInfo[0]);
+console.log(enemyInfo[3]);
 
 // start the game when the page loads
 startGame();
