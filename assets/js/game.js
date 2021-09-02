@@ -4,6 +4,13 @@
 //      *Defeat each enemy-robot
 // "LOSE" - Player robot's health is zero or less
 
+// function to generate a random numeric value
+var randomNumber = function(min, max) {
+    var value = Math.floor(Math.random() * (max - min) + min);
+
+    return value;
+};
+
 
 var fightOrSkip = function() {
     // ask player if they'd like to fight or skip using fightOrSkip function
@@ -111,6 +118,9 @@ var startGame = function() {
     playerInfo.reset();
 
     for (var i = 0; i < enemyInfo.length; i++) {
+
+        console.log(playerInfo);
+
         // if player is still alive, keep fighting
         if (playerInfo.health > 0) {
             //let player know what round they are in, remember that array start at 0 so it needs to have 1 added to it
@@ -123,7 +133,7 @@ var startGame = function() {
         pickedEnemyObj.health = randomNumber(40, 60);
         
         //use debugger to pause script from running and check what's going on at that moment in the code
-        // debugger;
+        console.log(pickedEnemyObj);
 
         // pass the pickedEnemyName variable's value into the fight function, where it will assume the value of the enemyName parameter
         fight(pickedEnemyObj);
@@ -140,14 +150,13 @@ var startGame = function() {
             }
             
         }
-
+    }
         // if the player isn't alive, stop the game
         else {
             window.alert("You have lost your robot in battle! Game over!");
             break;
         }
     }
-}
     // after the loop ends, player is either out of health or enemies to fight, so run the endGame function
     endGame();
 };
@@ -157,7 +166,7 @@ var endGame = function() {
     window.alert("The game has now ended. Let's see how you did!");
 
     // check localStorage for high score, if it's not there, use 0
-    var highScore = localStorage.getItem("highschore");
+    var highScore = localStorage.getItem("highscore");
     if (highScore === null) {
         highScore = 0;
     }
@@ -217,12 +226,6 @@ var shopOptionPrompt = window.prompt(
 };
 
 
-// function to generate a random numeric value
-var randomNumber = function(min, max) {
-    var value = Math.floor(Math.random() * (max - min + 1) + min);
-
-    return value;
-};
 
 // function to set name
 var getPlayerName = function() {
@@ -286,11 +289,7 @@ var enemyInfo = [
     }
 ];
 
-console.log(enemyInfo);
 
-console.log(enemyInfo.length);
-console.log(enemyInfo[0]);
-console.log(enemyInfo[3]);
 
 // start the game when the page loads
 startGame();
